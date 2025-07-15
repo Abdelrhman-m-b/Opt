@@ -110,7 +110,7 @@ rm_pred, reh_pred = predict_mechanical_properties(pd.DataFrame([input_comp]), di
 st.markdown(f"### 🔍 Prediction for Initial Composition (Ø {diameter} mm)")
 st.write(f"**Predicted Rm**: {rm_pred:.1f} MPa")
 st.write(f"**Predicted ReH**: {reh_pred:.1f} MPa")
-st.write(f"**Predicted Rm//ReH Ratio**: {rm_pred/reh_pred:.1f} ")
+st.write(f"**Predicted Rm//ReH Ratio**: {rm_pred/reh_pred:.2f} ")
 
 # Optimization Trigger
 if st.button("Run Optimization"):
