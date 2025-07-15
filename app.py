@@ -7,6 +7,7 @@ import os
 # ========== Utility Functions ==========
 
 def load_model_and_scaler(diameter, stage):
+    diameter = float(diameter)  # Ensure float format
     model_path = f"models/model_{stage}_d{diameter}.pkl"
     scaler_path = f"scalers/scaler_d{diameter}.pkl"
     model = joblib.load(model_path)
@@ -80,7 +81,7 @@ st.set_page_config(page_title="Steel Alloy Optimizer", layout="centered")
 st.title("🔩 Steel Alloy Optimization Tool")
 st.markdown("Estimate mechanical properties and **optimize alloying additions** for EAF rebars.")
 
-diameter = st.selectbox("Select initial test diameter", [10, 12, 16, 18, 32])
+diameter = st.selectbox("Select initial test diameter", [10.0, 12.0, 16.0, 18.0, 32.0])
 rm_min = st.number_input("Target Rm (MPa)", min_value=400, value=550)
 reh_min = st.number_input("Target ReH (MPa)", min_value=300, value=500)
 step = st.select_slider("Optimization Step", options=[0.005, 0.01, 0.02], value=0.01)
